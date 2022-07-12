@@ -20,7 +20,6 @@ public class App {
             System.out.print("Your choice: ");
             int userChoice = Integer.parseInt(scanner.nextLine());
             Menu.openGame(userChoice);
-
         }
     }
 }
