@@ -2,7 +2,7 @@ package hexlet.code;
 
 public class Menu {
 
-    private static Item[] listMenu = new Item[]{new Greet(), new Exit()};
+    private static Item[] listMenu = new Item[]{new Greet(), new Even(), new Exit()};
 
     public static void showMenu() {
         for (int i = 0; i < listMenu.length; i++) {
