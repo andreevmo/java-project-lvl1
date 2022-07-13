@@ -4,3 +4,5 @@
 Asciinema(Even):
 https://asciinema.org/a/GUMg4gVAMzAU3lD1jgJZHu2aI
 
+Asciinema(Calc):
+https://asciinema.org/a/Fb4OucYetpgtU5YWDrM90B1Zi
