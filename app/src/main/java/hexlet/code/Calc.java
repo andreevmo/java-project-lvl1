@@ -11,7 +11,7 @@ public class Calc implements Game {
     private int numberItem = 3;
     private char[] operators = {'+', '-', '*'};
     private int[] operands;
-    private int numOperands;
+    private int numOperators;
     private int result;
     private Scanner scanner = new Scanner(System.in);
 
@@ -35,9 +35,9 @@ public class Calc implements Game {
     public final void generate() {
         int maximumOperands = 50;
         operands = new int[]{RandomUtils.nextInt(1, maximumOperands), RandomUtils.nextInt(1, maximumOperands)};
-        numOperands = RandomUtils.nextInt(0, operands.length);
+        numOperators = RandomUtils.nextInt(0, operators.length);
 
-        result = switch (numOperands) {
+        result = switch (numOperators) {
             case 0 -> add(operands[0], operands[1]);
             case 1 -> subtract(operands[0], operands[1]);
             case 2 -> multiply(operands[0], operands[1]);
@@ -47,7 +47,7 @@ public class Calc implements Game {
 
     @Override
     public final void ask() {
-        System.out.println("Question: " + operands[0] + " " + operators[numOperands] + " " + operands[1]);
+        System.out.println("Question: " + operands[0] + " " + operators[numOperators] + " " + operands[1]);
     }
 
     @Override
