@@ -1,19 +1,34 @@
 package hexlet.code;
 
+import java.util.Scanner;
+
 public class Menu {
 
-    private static Item[] listMenu = new Item[]{new Greet(), new Even(), new Exit()};
+    private Item[] listMenu = new Item[]{new Greet(), new Even(), new Calc(), new Exit()};
+    private int userChoice;
 
-    public static void showMenu() {
-        for (int i = 0; i < listMenu.length; i++) {
-            System.out.println(listMenu[i].getNumItem() + " - " + listMenu[i].getNameItem());
+    public final void showMenu() {
+        System.out.println("Please enter the game number and press Enter.");
+        for (Item menu : listMenu) {
+            System.out.println(menu.getNumItem() + " - " + menu.getNameItem());
         }
     }
 
-    public static void openGame(int num) {
+    public final void openGame() {
+        System.out.print("Your choice: ");
+        userChoice = Integer.parseInt(new Scanner(System.in).nextLine());
+
         for (Item item : listMenu) {
-            if (num == item.getNumItem()) {
-                item.start();
+            if (userChoice == 0) {
+                break;
+            }
+
+            if (userChoice == item.getNumItem()) {
+                if (userChoice == 1) {
+                    Cli.makeWelcome();
+                } else {
+                    Engine.start((Game) item);
+                }
                 break;
             }
         }

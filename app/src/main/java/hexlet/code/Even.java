@@ -3,60 +3,63 @@ package hexlet.code;
 import java.util.Scanner;
 import org.apache.commons.lang3.RandomUtils;
 
-public class Even implements Item {
+public class Even implements Game {
 
-    private String name = "Even";
-    private int num = 2;
-
-    private int countQuestion = 3;
+    private String nameItem = "Even";
+    private String userAnswer;
+    private int numberItem = 2;
+    private int[] operands;
+    private int result;
 
     @Override
-    public void start() {
+    public final int getNumItem() {
+        return this.numberItem;
+    }
 
+    @Override
+    public final String getNameItem() {
+        return this.nameItem;
+    }
+
+    @Override
+    public final void greet() {
         Cli.makeWelcome();
-
         System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
+    }
 
-        for (int i = 1; i <= countQuestion; i++) {
+    @Override
+    public final void generate() {
 
-            int rangeNumForQuestion = 100;
-            int numForQuestion = RandomUtils.nextInt(1, rangeNumForQuestion);
-            System.out.println("Question: " + numForQuestion);
+        operands = new int[]{RandomUtils.nextInt(1, 100)};
+        result = operands[0] % 2;
+    }
 
-            System.out.print("Your answer: ");
-            String userAnswer = new Scanner(System.in).nextLine();
+    @Override
+    public final void ask() {
+        System.out.println("Question: " + operands[0]);
+    }
 
-            if (numForQuestion % 2 == 0 && userAnswer.equals("yes")) {
-                System.out.println("Correct!");
-            } else if (numForQuestion % 2 != 0 && userAnswer.equals("no")) {
-                System.out.println("Correct!");
-            } else {
-                String correctAnswer = userAnswer.equals("yes") ? "no" : "yes";
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. "
-                        + "Correct answer was '" + correctAnswer + "'.\n"
-                        + "Let's try again, " + Cli.getUserName() + "!");
-                break;
-            }
+    @Override
+    public final void getAnswer() {
+        System.out.print("Your answer: ");
+        userAnswer = new Scanner(System.in).nextLine();
+    }
 
-            if (i == countQuestion) {
-                System.out.println("Congratulations, " + Cli.getUserName() + "!");
-            }
+    @Override
+    public final boolean checkAnswer() {
+        boolean isCorrect = true;
+
+        if (result == 0 && userAnswer.equals("yes")) {
+            System.out.println("Correct!");
+        } else if (result != 0 && userAnswer.equals("no")) {
+            System.out.println("Correct!");
+        } else {
+            String correctAnswer = userAnswer.equals("yes") ? "no" : "yes";
+            System.out.println("'" + userAnswer + "' is wrong answer ;(. "
+                    + "Correct answer was '" + correctAnswer + "'.\n"
+                    + "Let's try again, " + Cli.getUserName() + "!");
+            isCorrect = false;
         }
-        finish();
-    }
-
-    @Override
-    public int getNumItem() {
-        return this.num;
-    }
-
-    @Override
-    public String getNameItem() {
-        return this.name;
-    }
-
-    @Override
-    public void finish() {
-        App.setIsOn(false);
+        return isCorrect;
     }
 }

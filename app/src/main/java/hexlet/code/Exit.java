@@ -2,24 +2,14 @@ package hexlet.code;
 
 public class Exit implements Item {
 
-    private final String name = "Exit";
-    private final int numItem = 0;
+    private String nameItem = "Exit";
+    private int numberItem = 0;
 
-    @Override
-    public void start() {
-        finish();
+    public final String getNameItem() {
+        return this.nameItem;
     }
 
-    public String getNameItem() {
-        return name;
-    }
-
-    @Override
-    public void finish() {
-        App.setIsOn(false);
-    }
-
-    public int getNumItem() {
-        return numItem;
+    public final int getNumItem() {
+        return this.numberItem;
     }
 }

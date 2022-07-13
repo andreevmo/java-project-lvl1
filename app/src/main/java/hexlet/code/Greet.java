@@ -2,25 +2,15 @@ package hexlet.code;
 
 public class Greet implements Item {
 
-    private final String name = "Greet";
-    private final int numItem = 1;
+    private String nameItem = "Greet";
+    private int numberItem = 1;
 
-    @Override
-    public void start() {
-        Cli.makeWelcome();
-        finish();
+    public final int getNumItem() {
+        return this.numberItem;
     }
 
-    public int getNumItem() {
-        return numItem;
+    public final String getNameItem() {
+        return this.nameItem;
     }
 
-    public String getNameItem() {
-        return name;
-    }
-
-    @Override
-    public void finish() {
-        App.setIsOn(false);
-    }
 }
