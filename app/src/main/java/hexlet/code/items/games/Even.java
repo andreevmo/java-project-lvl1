@@ -10,7 +10,6 @@ public class Even implements Game {
     private String userAnswer;
     private int numberItem = 2;
     private int[] operands;
-    private int result;
 
     @Override
     public final int getNumItem() {
@@ -32,7 +31,6 @@ public class Even implements Game {
     public final void generate(int range) {
 
         operands = new int[]{RandomUtils.nextInt(1, range)};
-        result = operands[0] % 2;
     }
 
     @Override
@@ -50,17 +48,21 @@ public class Even implements Game {
     public final boolean checkAnswer() {
         boolean isCorrect = true;
 
-        if (result == 0 && userAnswer.equals("yes")) {
+        if (isEven(operands[0]) && userAnswer.equals("yes")) {
             System.out.println("Correct!");
-        } else if (result != 0 && userAnswer.equals("no")) {
+        } else if (!(isEven(operands[0])) && userAnswer.equals("no")) {
             System.out.println("Correct!");
         } else {
-            String correctAnswer = userAnswer.equals("yes") ? "no" : "yes";
+            String correctAnswer = isEven(operands[0]) ? "yes" : "no";
             System.out.println("'" + userAnswer + "' is wrong answer ;(. "
                     + "Correct answer was '" + correctAnswer + "'.\n"
                     + "Let's try again, " + Cli.getUserName() + "!");
             isCorrect = false;
         }
         return isCorrect;
+    }
+
+    private boolean isEven(int num) {
+        return operands[0] % 2 == 0;
     }
 }
