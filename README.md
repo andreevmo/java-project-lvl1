@@ -6,3 +6,6 @@ https://asciinema.org/a/GUMg4gVAMzAU3lD1jgJZHu2aI
 
 Asciinema(Calc):
 https://asciinema.org/a/Fb4OucYetpgtU5YWDrM90B1Zi
+
+Asciinema(GCD):
+https://asciinema.org/a/AzmRxc9Tl15iobS7udJf5fiNK
