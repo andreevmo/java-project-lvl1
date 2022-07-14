@@ -1,7 +1,5 @@
 package hexlet.code.items;
 
-import hexlet.code.items.Item;
-
 public class Exit implements Item {
 
     private String nameItem = "Exit";

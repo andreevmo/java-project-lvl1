@@ -29,9 +29,9 @@ public class Even implements Game {
     }
 
     @Override
-    public final void generate() {
+    public final void generate(int range) {
 
-        operands = new int[]{RandomUtils.nextInt(1, 100)};
+        operands = new int[]{RandomUtils.nextInt(1, range)};
         result = operands[0] % 2;
     }
 

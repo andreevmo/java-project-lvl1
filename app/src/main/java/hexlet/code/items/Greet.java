@@ -1,7 +1,5 @@
 package hexlet.code.items;
 
-import hexlet.code.items.Item;
-
 public class Greet implements Item {
 
     private String nameItem = "Greet";

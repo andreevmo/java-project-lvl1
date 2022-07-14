@@ -33,8 +33,8 @@ public class Calc implements Game {
     }
 
     @Override
-    public final void generate() {
-        operands = new int[]{RandomUtils.nextInt(1, 50), RandomUtils.nextInt(1, 50)};
+    public final void generate(int range) {
+        operands = new int[]{RandomUtils.nextInt(1, range), RandomUtils.nextInt(1, range)};
         numOperators = RandomUtils.nextInt(0, operators.length);
 
         result = switch (numOperators) {

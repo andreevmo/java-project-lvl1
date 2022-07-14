@@ -30,8 +30,8 @@ public class GCD implements Game {
     }
 
     @Override
-    public final void generate() {
-        operands = new int[]{RandomUtils.nextInt(1, 100), RandomUtils.nextInt(1, 100)};
+    public final void generate(int range) {
+        operands = new int[]{RandomUtils.nextInt(1, range), RandomUtils.nextInt(1, range)};
 
         result = getGCD(operands[0], operands[1]);
     }
