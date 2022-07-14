@@ -8,7 +8,8 @@ import java.util.Scanner;
 
 public class Menu {
 
-    private Item[] listMenu = new Item[]{new Greet(), new Even(), new Calc(), new GCD(), new Progression(), new Exit()};
+    private Item[] listMenu = new Item[]{new Greet(), new Even(), new Calc(),
+            new GCD(), new Progression(), new Prime(), new Exit()};
     private int userChoice;
 
     public final void showMenu() {
