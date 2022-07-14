@@ -1,4 +1,6 @@
-package hexlet.code;
+package hexlet.code.items.games;
+
+import hexlet.code.items.Item;
 
 public interface Game extends Item {
 

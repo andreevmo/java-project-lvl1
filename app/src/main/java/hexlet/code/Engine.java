@@ -1,5 +1,7 @@
 package hexlet.code;
 
+import hexlet.code.items.games.Game;
+
 public class Engine {
 
     private static int amountGames = 3;

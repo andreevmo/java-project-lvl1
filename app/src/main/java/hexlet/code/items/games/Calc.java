@@ -1,5 +1,6 @@
-package hexlet.code;
+package hexlet.code.items.games;
 
+import hexlet.code.Cli;
 import org.apache.commons.lang3.RandomUtils;
 
 import java.util.Scanner;
@@ -33,8 +34,7 @@ public class Calc implements Game {
 
     @Override
     public final void generate() {
-        int maximumOperands = 50;
-        operands = new int[]{RandomUtils.nextInt(1, maximumOperands), RandomUtils.nextInt(1, maximumOperands)};
+        operands = new int[]{RandomUtils.nextInt(1, 50), RandomUtils.nextInt(1, 50)};
         numOperators = RandomUtils.nextInt(0, operators.length);
 
         result = switch (numOperators) {

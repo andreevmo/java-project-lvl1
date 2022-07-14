@@ -1,6 +1,7 @@
-package hexlet.code;
+package hexlet.code.items.games;
 
 import java.util.Scanner;
+import hexlet.code.Cli;
 import org.apache.commons.lang3.RandomUtils;
 
 public class Even implements Game {

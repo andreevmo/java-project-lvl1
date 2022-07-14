@@ -1,4 +1,6 @@
-package hexlet.code;
+package hexlet.code.items;
+
+import hexlet.code.items.Item;
 
 public class Greet implements Item {
 

@@ -1,10 +1,17 @@
-package hexlet.code;
+package hexlet.code.items;
+
+import hexlet.code.Cli;
+import hexlet.code.Engine;
+import hexlet.code.items.games.Calc;
+import hexlet.code.items.games.Even;
+import hexlet.code.items.games.GCD;
+import hexlet.code.items.games.Game;
 
 import java.util.Scanner;
 
 public class Menu {
 
-    private Item[] listMenu = new Item[]{new Greet(), new Even(), new Calc(), new Exit()};
+    private Item[] listMenu = new Item[]{new Greet(), new Even(), new Calc(), new GCD(), new Exit()};
     private int userChoice;
 
     public final void showMenu() {

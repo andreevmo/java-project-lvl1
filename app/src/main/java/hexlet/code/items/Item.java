@@ -1,6 +1,6 @@
-package hexlet.code;
+package hexlet.code.items;
 
-interface Item {
+public interface Item {
 
     int getNumItem();
     String getNameItem();
