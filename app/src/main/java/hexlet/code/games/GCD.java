@@ -9,15 +9,13 @@ public class GCD {
     public static final String NAME_ITEM = "GCD";
     public static final int NUMBER_ITEM = 4;
     private static int[] operands;
-    private static int result;
+    private static String result;
 
     private static final String RULE = "Find the greatest common divisor of given numbers.";
 
     public static void start() {
 
-        Cli.makeWelcome();
-
-        System.out.println(RULE);
+        Engine.sayHello(RULE);
 
         for (int i = 0; i < Engine.AMOUNT_GAMES; i++) {
 
@@ -27,7 +25,7 @@ public class GCD {
 
             String userAnswer = Engine.getAnswer();
 
-            if (!(Engine.checkAnswerInt(result, userAnswer))) {
+            if (!(Engine.checkAnswer(result, userAnswer))) {
                 return;
             }
         }
@@ -38,7 +36,7 @@ public class GCD {
     public static void generate(int range) {
         operands = new int[]{RandomUtils.nextInt(1, range), RandomUtils.nextInt(1, range)};
 
-        result = getGCD(operands[0], operands[1]);
+        result = String.valueOf(getGCD(operands[0], operands[1]));
     }
 
     public static void ask() {

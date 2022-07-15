@@ -9,14 +9,12 @@ public class Prime {
     public static final String NAME_ITEM = "Prime";
     public static final int NUMBER_ITEM = 6;
     private static int[] operands;
-    private static boolean result;
+    private static String result;
     private static final String RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
     public static void start() {
 
-        Cli.makeWelcome();
-
-        System.out.println(RULE);
+        Engine.sayHello(RULE);
 
         for (int i = 0; i < Engine.AMOUNT_GAMES; i++) {
 
@@ -26,7 +24,7 @@ public class Prime {
 
             String userAnswer = Engine.getAnswer();
 
-            if (!(Engine.checkAnswerString(result, userAnswer))) {
+            if (!(Engine.checkAnswer(result, userAnswer))) {
                 return;
             }
         }
@@ -36,7 +34,7 @@ public class Prime {
 
     public static void generate(int range) {
         operands = new int[]{RandomUtils.nextInt(1, range)};
-        result = isPrime(operands[0]);
+        result = isPrime(operands[0]) ? "yes" : "no";
     }
 
     public static void ask() {

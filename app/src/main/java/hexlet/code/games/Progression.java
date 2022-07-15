@@ -10,14 +10,12 @@ public class Progression {
     public static final int NUMBER_ITEM = 5;
     private static final int PROGRESSION_SIZE = 10;
     private static final String[] PROGRESSION = new String[PROGRESSION_SIZE];
-    private static int result;
+    private static String result;
     private static final String RULE = "What number is missing in the progression?";
 
     public static void start() {
 
-        Cli.makeWelcome();
-
-        System.out.println(RULE);
+        Engine.sayHello(RULE);
 
         for (int i = 0; i < Engine.AMOUNT_GAMES; i++) {
 
@@ -27,7 +25,7 @@ public class Progression {
 
             String userAnswer = Engine.getAnswer();
 
-            if (!(Engine.checkAnswerInt(result, userAnswer))) {
+            if (!(Engine.checkAnswer(result, userAnswer))) {
                 return;
             }
         }
@@ -50,7 +48,7 @@ public class Progression {
 
     public static void ask() {
         int missingElementIndex = RandomUtils.nextInt(0, PROGRESSION.length);
-        result = Integer.parseInt(PROGRESSION[missingElementIndex]);
+        result = PROGRESSION[missingElementIndex];
         System.out.print("Question:");
         for (int i = 0; i < PROGRESSION.length; i++) {
             if (i == missingElementIndex) {

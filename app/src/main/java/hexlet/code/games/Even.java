@@ -9,14 +9,12 @@ public class Even {
     public static final String NAME_ITEM = "Even";
     public static final int NUMBER_ITEM = 2;
     private static int[] operands;
-    private static boolean result;
+    private static String result;
     private static final String RULE = "Answer 'yes' if number even otherwise answer 'no'.";
 
     public static void start() {
 
-        Cli.makeWelcome();
-
-        System.out.println(RULE);
+        Engine.sayHello(RULE);
 
         for (int i = 0; i < Engine.AMOUNT_GAMES; i++) {
 
@@ -26,7 +24,7 @@ public class Even {
 
             String userAnswer = Engine.getAnswer();
 
-            if (!(Engine.checkAnswerString(result, userAnswer))) {
+            if (!(Engine.checkAnswer(result, userAnswer))) {
                 return;
             }
         }
@@ -36,7 +34,7 @@ public class Even {
 
     public static void generate(int range) {
         operands = new int[]{RandomUtils.nextInt(1, range)};
-        result = isEven(operands[0]);
+        result = isEven(operands[0]) ? "yes" : "no";
     }
 
     public static void ask() {

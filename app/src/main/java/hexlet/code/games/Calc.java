@@ -11,14 +11,12 @@ public class Calc {
     private static final char[] OPERATORS = {'+', '-', '*'};
     private static int[] operands;
     private static int numOperators;
-    private static int result;
+    private static String result;
     private static final String RULE = "What is the result of the expression?";
 
     public static void start() {
 
-        Cli.makeWelcome();
-
-        System.out.println(RULE);
+        Engine.sayHello(RULE);
 
         for (int i = 0; i < Engine.AMOUNT_GAMES; i++) {
 
@@ -28,7 +26,7 @@ public class Calc {
 
             String userAnswer = Engine.getAnswer();
 
-            if (!(Engine.checkAnswerInt(result, userAnswer))) {
+            if (!(Engine.checkAnswer(result, userAnswer))) {
                 return;
             }
         }
@@ -44,7 +42,7 @@ public class Calc {
             case 0 -> add(operands[0], operands[1]);
             case 1 -> subtract(operands[0], operands[1]);
             case 2 -> multiply(operands[0], operands[1]);
-            default -> 0;
+            default -> "0";
         };
     }
 
@@ -52,15 +50,15 @@ public class Calc {
         System.out.println("Question: " + operands[0] + " " + OPERATORS[numOperators] + " " + operands[1]);
     }
 
-    private static int multiply(int a, int b) {
-        return a * b;
+    private static String multiply(int a, int b) {
+        return String.valueOf(a * b);
     }
 
-    private static int add(int a, int b) {
-        return a + b;
+    private static String add(int a, int b) {
+        return String.valueOf(a + b);
     }
 
-    private static int subtract(int a, int b) {
-        return a - b;
+    private static String subtract(int a, int b) {
+        return String.valueOf(a - b);
     }
 }
