@@ -1,5 +1,4 @@
-run-dist:
-		./build/install/app/bin/app
+.DEFAULT_GOAL := build-run
 
 clean:
 	./gradlew clean
@@ -7,8 +6,11 @@ clean:
 build:
 	./gradlew clean build
 
-install-dist:
-	./gradlew clean installDist
+install:
+	./gradlew clean install
+
+run-dist:
+	./build/install/app/bin/app
 
 run:
 	./gradlew run
@@ -27,3 +29,5 @@ update-deps:
 
 
 build-run: build run
+
+.PHONY: build
