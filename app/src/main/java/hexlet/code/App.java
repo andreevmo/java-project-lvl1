@@ -10,7 +10,12 @@ public class App {
 
         Game[] items = {new Even(), new Calc(), new GCD(), new Progression(), new Prime()};
         showMenu(items);
-        openGame(items);
+
+        System.out.print("Your choice: ");
+        String userChoice = new Scanner(System.in).nextLine();
+        userChoice = new Scanner(userChoice).hasNextInt() ? userChoice : "0";
+
+        openGame(items, userChoice);
 
     }
 
@@ -23,10 +28,7 @@ public class App {
         System.out.println("0 - Exit");
     }
 
-    public static void openGame(Game[] items) {
-        System.out.print("Your choice: ");
-        String userChoice = new Scanner(System.in).nextLine();
-        userChoice = new Scanner(userChoice).hasNextInt() ? userChoice : "0";
+    public static void openGame(Game[] items, String userChoice) {
         if (userChoice.equals("1")) {
             Cli.makeWelcome();
         } else {
