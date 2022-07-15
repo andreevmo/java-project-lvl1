@@ -14,8 +14,11 @@ public class App {
         System.out.print("Your choice: ");
         String userChoice = new Scanner(System.in).nextLine();
         userChoice = new Scanner(userChoice).hasNextInt() ? userChoice : "0";
-
-        openGame(items, userChoice);
+        if (userChoice.equals("1")) {
+            Cli.makeWelcome();
+        } else {
+            openGame(items, userChoice);
+        }
 
     }
 
@@ -29,13 +32,9 @@ public class App {
     }
 
     public static void openGame(Game[] items, String userChoice) {
-        if (userChoice.equals("1")) {
-            Cli.makeWelcome();
-        } else {
-            for (Game game : items) {
-                if (Integer.parseInt(userChoice) == game.getNumItem()) {
-                    Engine.start(game);
-                }
+        for (Game game : items) {
+            if (Integer.parseInt(userChoice) == game.getNumItem()) {
+                Engine.start(game);
             }
         }
     }
