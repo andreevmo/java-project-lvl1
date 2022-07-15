@@ -10,8 +10,6 @@ public class Engine {
     public static final int AMOUNT_GAMES = 3;
     public static final int RANGE_FOR_GENERATE = 50;
 
-<<<<<<< Updated upstream
-=======
     public static void start(Game game) {
 
         Engine.sayHello(game.getRULE());
@@ -29,16 +27,11 @@ public class Engine {
 
         System.out.println("Congratulations, " + Cli.getUserName() + "!");
     }
-
-
->>>>>>> Stashed changes
     public static void sayHello(String rule) {
         Cli.makeWelcome();
         System.out.println(rule);
     }
 
-<<<<<<< Updated upstream
-=======
     public static int generate() {
         return RandomUtils.nextInt(1, RANGE_FOR_GENERATE);
     }
@@ -47,7 +40,6 @@ public class Engine {
         System.out.println("Question:" + expression);
     }
 
->>>>>>> Stashed changes
     public static String getAnswer() {
         System.out.print("Your answer: ");
         return new Scanner(System.in).nextLine();
