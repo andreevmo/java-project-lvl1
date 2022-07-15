@@ -1,14 +1,11 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
-import hexlet.code.Engine;
-import org.apache.commons.lang3.RandomUtils;
-
-public class Even {
+public class Even implements Game {
 
     public static final String NAME_ITEM = "Even";
     public static final int NUMBER_ITEM = 2;
     private static int[] operands;
+<<<<<<< Updated upstream
     private static String result;
     private static final String RULE = "Answer 'yes' if number even otherwise answer 'no'.";
 
@@ -28,21 +25,34 @@ public class Even {
                 return;
             }
         }
+=======
+    private static final String RULE = "Answer 'yes' if number even otherwise answer 'no'.";
 
-        System.out.println("Congratulations, " + Cli.getUserName() + "!");
+>>>>>>> Stashed changes
+
+    @Override
+    public final String getRULE() {
+        return RULE;
     }
 
+<<<<<<< Updated upstream
     public static void generate(int range) {
         operands = new int[]{RandomUtils.nextInt(1, range)};
         result = isEven(operands[0]) ? "yes" : "no";
+=======
+    @Override
+    public final int getNumItem() {
+        return NUMBER_ITEM;
+>>>>>>> Stashed changes
     }
 
-    public static void ask() {
-        System.out.println("Question: " + operands[0]);
+    @Override
+    public final String getNameItem() {
+        return NAME_ITEM;
     }
 
-    private static boolean isEven(int num) {
-        return num % 2 == 0;
+    public final String getResult(String question) {
+        return Integer.parseInt(question.trim()) % 2 == 0 ? "yes" : "no";
     }
 
 }

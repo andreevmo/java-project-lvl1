@@ -1,13 +1,10 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
-import hexlet.code.Engine;
-import org.apache.commons.lang3.RandomUtils;
-
-public class Prime {
+public class Prime implements Game {
 
     public static final String NAME_ITEM = "Prime";
     public static final int NUMBER_ITEM = 6;
+<<<<<<< Updated upstream
     private static int[] operands;
     private static String result;
     private static final String RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
@@ -35,21 +32,34 @@ public class Prime {
     public static void generate(int range) {
         operands = new int[]{RandomUtils.nextInt(1, range)};
         result = isPrime(operands[0]) ? "yes" : "no";
+=======
+    private static final String RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+
+    @Override
+    public final String getRULE() {
+        return RULE;
     }
 
-    public static void ask() {
-        System.out.println("Question: " + operands[0]);
+    @Override
+    public final int getNumItem() {
+        return NUMBER_ITEM;
+>>>>>>> Stashed changes
     }
 
-    private static boolean isPrime(int num) {
-        if (num == 1) {
-            return false;
-        }
-        for (int i = 2; i <= num / 2; i++) {
-            if (num % i == 0) {
-                return false;
+    @Override
+    public final String getNameItem() {
+        return NAME_ITEM;
+    }
+
+    public final String getResult(String question) {
+        int number = Integer.parseInt(question.trim());
+        for (int i = 2; i <= number / 2; i++) {
+            if (number == 1 || number % i == 0) {
+                return "no";
             }
         }
-        return true;
+        return "yes";
     }
+
+
 }
