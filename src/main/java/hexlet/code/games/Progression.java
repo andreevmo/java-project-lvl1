@@ -42,16 +42,14 @@ public class Progression implements Game {
             }
         }
 
-        StringBuilder questionBuilder = new StringBuilder(question);
-
         for (int i = 0; i < PROGRESSION.length; i++) {
             if (i == missingElementIndex) {
-                questionBuilder.append(".. ");
+                question += ".. ";
                 continue;
             }
-            questionBuilder.append(PROGRESSION[i]).append(" ");
+            question += PROGRESSION[i] + " ";
         }
-        question = questionBuilder.toString();
+
         return question;
     }
 
