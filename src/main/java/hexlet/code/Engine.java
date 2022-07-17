@@ -36,31 +36,31 @@ public class Engine {
     }
 
     public static void initialization(int userChoice) {
-        question = " ";
+        question = "";
         switch (userChoice) {
             case Even.NUMBER_ITEM -> {
                 rule = Even.RULE;
-                question += Engine.generate();
+                question += " " + Engine.generate();
                 result = Even.getResult(question);
             }
             case Calc.NUMBER_ITEM -> {
                 rule = Calc.RULE;
-                question += Calc.generateExpression(question);
+                question += " " + Calc.generateExpression(question);
                 result = Calc.getResult();
             }
             case GCD.NUMBER_ITEM -> {
                 rule = GCD.RULE;
-                question += GCD.generateExpression(question);
+                question += " " + GCD.generateExpression(question);
                 result = GCD.getResult();
             }
             case Progression.NUMBER_ITEM -> {
                 rule = Progression.RULE;
-                question += Progression.generateExpression(question);
+                question += " " + Progression.generateExpression(question);
                 result = Progression.getResult();
             }
             case Prime.NUMBER_ITEM -> {
                 rule = Prime.RULE;
-                question += Engine.generate();
+                question += " " + Engine.generate();
                 result = Prime.getResult(question);
             }
             default -> {
