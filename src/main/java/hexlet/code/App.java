@@ -10,12 +10,11 @@ import java.util.Scanner;
 
 public class App {
 
-    public static String userChoice;
     public static void main(String[] args) {
 
         showMenu();
         System.out.print("Your choice: ");
-        userChoice = new Scanner(System.in).nextLine();
+        String userChoice = new Scanner(System.in).nextLine();
         userChoice = new Scanner(userChoice).hasNextInt() ? userChoice : "0";
         if (userChoice.equals("0")) {
             return;

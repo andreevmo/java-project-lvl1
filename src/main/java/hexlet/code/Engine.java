@@ -1,6 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 import org.apache.commons.lang3.RandomUtils;
 
 import java.util.Scanner;
@@ -9,9 +13,9 @@ public class Engine {
 
     public static final int AMOUNT_GAMES = 3;
     public static final int RANGE_FOR_GENERATE = 50;
-    public static String question;
-    public static String result;
-    public static String rule;
+    private static String question;
+    private static String result;
+    private static String rule;
     public static void start(int userChoice) {
 
         Cli.makeWelcome();
@@ -25,9 +29,9 @@ public class Engine {
                 System.out.println(rule);
             }
 
-            Engine.ask(question);
+            Engine.ask();
 
-            if (!(Engine.checkAnswer(result, Engine.getAnswer()))) {
+            if (!(Engine.checkAnswer(Engine.getAnswer()))) {
                 return;
             }
         }
@@ -71,7 +75,7 @@ public class Engine {
         return RandomUtils.nextInt(1, RANGE_FOR_GENERATE);
     }
 
-    public static void ask(String question) {
+    public static void ask() {
         System.out.println("Question:" + question);
     }
 
@@ -80,7 +84,7 @@ public class Engine {
         return new Scanner(System.in).nextLine();
     }
 
-    public static boolean checkAnswer(String result, String userAnswer) {
+    public static boolean checkAnswer(String userAnswer) {
 
         if (userAnswer.equals(result)) {
             System.out.println("Correct!");
