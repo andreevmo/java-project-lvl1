@@ -4,7 +4,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import org.apache.commons.lang3.RandomUtils;
 
-public class Progression implements Game {
+public class Progression {
 
     public static final String NAME_ITEM = "Progression";
     public static final int NUMBER_ITEM = 5;
@@ -12,24 +12,9 @@ public class Progression implements Game {
     private static final String[] PROGRESSION = new String[PROGRESSION_SIZE];
 
     private static int missingElementIndex;
-    private static final String RULE = "What number is missing in the progression?";
+    public static final String RULE = "What number is missing in the progression?";
 
-    @Override
-    public final String getRULE() {
-        return RULE;
-    }
-
-    @Override
-    public final int getNumItem() {
-        return NUMBER_ITEM;
-    }
-
-    @Override
-    public final String getNameItem() {
-        return NAME_ITEM;
-    }
-
-    public final String generateExpression(String question) {
+    public static String generateExpression(String question) {
 
         int stepInProgressions = Engine.generate();
         missingElementIndex = RandomUtils.nextInt(0, PROGRESSION.length);
@@ -53,7 +38,7 @@ public class Progression implements Game {
         return question;
     }
 
-    public final String getResult(String question) {
+    public static String getResult() {
         return PROGRESSION[missingElementIndex];
     }
 }

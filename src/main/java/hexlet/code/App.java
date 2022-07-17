@@ -5,41 +5,32 @@ import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
 import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
-import hexlet.code.games.Game;
+
 import java.util.Scanner;
 
 public class App {
 
+    public static String userChoice;
     public static void main(String[] args) {
 
-        Game[] items = {new Even(), new Calc(), new GCD(), new Progression(), new Prime()};
-        showMenu(items);
-
+        showMenu();
         System.out.print("Your choice: ");
-        String userChoice = new Scanner(System.in).nextLine();
+        userChoice = new Scanner(System.in).nextLine();
         userChoice = new Scanner(userChoice).hasNextInt() ? userChoice : "0";
-        if (userChoice.equals("1")) {
-            Cli.makeWelcome();
-        } else {
-            openGame(items, userChoice);
+        if (userChoice.equals("0")) {
+            return;
         }
-
+        Engine.start(Integer.parseInt(userChoice));
     }
 
-    public static void showMenu(Game[] items) {
+    public static void showMenu() {
         System.out.println("Please enter the game number and press Enter.");
-        System.out.println("1 - Greet");
-        for (Game game : items) {
-            System.out.println(game.getNumItem() + " - " + game.getNameItem());
-        }
-        System.out.println("0 - Exit");
-    }
-
-    public static void openGame(Game[] items, String userChoice) {
-        for (Game game : items) {
-            if (Integer.parseInt(userChoice) == game.getNumItem()) {
-                Engine.start(game);
-            }
-        }
+        System.out.println("1 - Greet\n"
+                + Even.NUMBER_ITEM + " - " + Even.NAME_ITEM + "\n"
+                + Calc.NUMBER_ITEM + " - " + Calc.NAME_ITEM + "\n"
+                + GCD.NUMBER_ITEM + " - " + GCD.NAME_ITEM + "\n"
+                + Progression.NUMBER_ITEM + " - " + Progression.NAME_ITEM + "\n"
+                + Prime.NUMBER_ITEM + " - " + Prime.NAME_ITEM + "\n"
+                + "0 - Exit");
     }
 }
