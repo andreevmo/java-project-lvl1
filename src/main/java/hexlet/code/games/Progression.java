@@ -35,7 +35,7 @@ public class Progression {
     }
 
     public static String generateQuestion(int[] progression, int missingElementIndex) {
-        String question = "Question: ";
+        String question = "";
         for (int i = 0; i < progression.length; i++) {
             if (i == missingElementIndex) {
                 question += ".. ";
