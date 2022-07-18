@@ -6,7 +6,6 @@ public class GCD {
 
     public static final String NAME_ITEM = "GCD";
     public static final int NUMBER_ITEM = 4;
-
     public static final String RULE = "Find the greatest common divisor of given numbers.";
     private static boolean isWin = true;
 
