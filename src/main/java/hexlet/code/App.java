@@ -11,15 +11,12 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) {
-
         showMenu();
         System.out.print("Your choice: ");
         String userChoice = new Scanner(System.in).nextLine();
-        userChoice = new Scanner(userChoice).hasNextInt() ? userChoice : "0";
-        if (userChoice.equals("0")) {
-            return;
-        }
-        Engine.start(Integer.parseInt(userChoice));
+        userChoice = new Scanner(userChoice).hasNextInt() ? String.valueOf(new Scanner(userChoice).nextInt()) : "0";
+        openGame(Integer.parseInt(userChoice));
+
     }
 
     public static void showMenu() {
@@ -31,5 +28,17 @@ public class App {
                 + Progression.NUMBER_ITEM + " - " + Progression.NAME_ITEM + "\n"
                 + Prime.NUMBER_ITEM + " - " + Prime.NAME_ITEM + "\n"
                 + "0 - Exit");
+    }
+
+    public static void openGame(int userChoice) {
+        switch (userChoice) {
+            case 1 -> Cli.makeWelcome();
+            case Even.NUMBER_ITEM -> Even.start();
+            case Calc.NUMBER_ITEM -> Calc.start();
+            case GCD.NUMBER_ITEM -> GCD.start();
+            case Progression.NUMBER_ITEM -> Progression.start();
+            case Prime.NUMBER_ITEM -> Prime.start();
+            default -> { }
+        }
     }
 }

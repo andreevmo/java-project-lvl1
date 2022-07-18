@@ -6,16 +6,20 @@ public class GCD {
 
     public static final String NAME_ITEM = "GCD";
     public static final int NUMBER_ITEM = 4;
-    private static int[] operands;
 
     public static final String RULE = "Find the greatest common divisor of given numbers.";
+    private static boolean isWin = true;
 
-    public static String generateExpression(String question) {
-        operands = new int[]{Engine.generate(), Engine.generate()};
-        return question + (operands[0] + " " + operands[1]);
+    public static void start() {
+        for (int i = 0; isWin && i < Utils.AMOUNT_GAMES; i++) {
+            int[] operands = Utils.generateOperands(2);
+            String question = operands[0] + " " + operands[1];
+            String result = getResult(operands);
+            isWin = Engine.start(RULE, question, result, i);
+        }
     }
 
-    public static String getResult() {
+    public static String getResult(int[] operands) {
         int max = Math.max(operands[0], operands[1]);
         int min = Math.min(operands[0], operands[1]);
         int divider = 1;
