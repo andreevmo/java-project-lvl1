@@ -13,7 +13,7 @@ public class Engine {
         String userAnswer = Utils.getAnswer();
         boolean isWin = Utils.checkAnswer(userAnswer, result);
         if (numGame == 2 && isWin) {
-            System.out.println("Congratulations, " + Cli.getUserName());
+            System.out.println("Congratulations, " + Cli.getUserName() + "!");
         }
         return isWin;
     }
