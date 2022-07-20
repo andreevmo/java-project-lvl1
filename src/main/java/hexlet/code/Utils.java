@@ -1,6 +1,5 @@
-package hexlet.code.games;
+package hexlet.code;
 
-import hexlet.code.Cli;
 import org.apache.commons.lang3.RandomUtils;
 
 import java.util.Scanner;
@@ -27,14 +26,14 @@ public class Utils {
         return new Scanner(System.in).nextLine();
     }
 
-    public static boolean checkAnswer(String userAnswer, String result) {
+    public static boolean checkAnswer(String userAnswer, String result, String userName) {
         if (userAnswer.equals(result)) {
             System.out.println("Correct!");
             return true;
         } else {
             System.out.println("'" + userAnswer + "' is wrong answer ;(. "
                     + "Correct answer was '" + result + "'.\n"
-                    + "Let's try again, " + Cli.getUserName() + "!");
+                    + "Let's try again, " + userName + "!");
         }
         return false;
     }

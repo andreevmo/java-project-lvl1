@@ -14,7 +14,8 @@ public class App {
         showMenu();
         System.out.print("Your choice: ");
         String userChoice = new Scanner(System.in).nextLine();
-        userChoice = new Scanner(userChoice).hasNextInt() ? String.valueOf(new Scanner(userChoice).nextInt()) : "0";
+        Scanner userInput = new Scanner(userChoice);
+        userChoice = userInput.hasNextInt() ? String.valueOf(userInput.nextInt()) : "0";
         openGame(Integer.parseInt(userChoice));
 
     }
@@ -33,11 +34,11 @@ public class App {
     public static void openGame(int userChoice) {
         switch (userChoice) {
             case 1 -> Cli.makeWelcome();
-            case Even.NUMBER_ITEM -> Even.start();
-            case Calc.NUMBER_ITEM -> Calc.start();
-            case GCD.NUMBER_ITEM -> GCD.start();
-            case Progression.NUMBER_ITEM -> Progression.start();
-            case Prime.NUMBER_ITEM -> Prime.start();
+            case Even.NUMBER_ITEM -> Even.start(Cli.makeWelcome());
+            case Calc.NUMBER_ITEM -> Calc.start(Cli.makeWelcome());
+            case GCD.NUMBER_ITEM -> GCD.start(Cli.makeWelcome());
+            case Progression.NUMBER_ITEM -> Progression.start(Cli.makeWelcome());
+            case Prime.NUMBER_ITEM -> Prime.start(Cli.makeWelcome());
             default -> { }
         }
     }

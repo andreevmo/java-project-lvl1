@@ -1,24 +1,27 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class GCD {
 
     public static final String NAME_ITEM = "GCD";
     public static final int NUMBER_ITEM = 4;
     public static final String RULE = "Find the greatest common divisor of given numbers.";
-    private static boolean isWin = true;
 
-    public static void start() {
-        for (int i = 0; isWin && i < Utils.AMOUNT_GAMES; i++) {
-            int[] operands = Utils.generateOperands(2);
-            String question = operands[0] + " " + operands[1];
-            String result = getResult(operands);
-            isWin = Engine.start(RULE, question, result, i);
+    public static void start(String userName) {
+        String[] question = new String[Utils.AMOUNT_GAMES];
+        String[] result = new String[Utils.AMOUNT_GAMES];
+        int[][] operands = new int[Utils.AMOUNT_GAMES][];
+        for (int numGame = 0; numGame < Utils.AMOUNT_GAMES; numGame++) {
+            operands[numGame] = Utils.generateOperands(2);
+            question[numGame] = operands[numGame][0] + " " + operands[numGame][1];
+            result[numGame] = getGCD(operands[numGame]);
         }
+        Engine.start(RULE, question, result, userName);
     }
 
-    public static String getResult(int[] operands) {
+    public static String getGCD(int[] operands) {
         int max = Math.max(operands[0], operands[1]);
         int min = Math.min(operands[0], operands[1]);
         int divider = 1;

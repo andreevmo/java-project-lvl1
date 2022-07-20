@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 import org.apache.commons.lang3.RandomUtils;
 
 public class Progression {
@@ -8,20 +9,23 @@ public class Progression {
     public static final String NAME_ITEM = "Progression";
     public static final int NUMBER_ITEM = 5;
     public static final String RULE = "What number is missing in the progression?";
-    private static boolean isWin = true;
     public static final int SIZE = 10;
 
-    public static void start() {
-        for (int i = 0; isWin && i < Utils.AMOUNT_GAMES; i++) {
-            int[] progression = generateExpression(SIZE);
-            int missingElement = RandomUtils.nextInt(0, progression.length);
-            String question = generateQuestion(progression, missingElement);
-            String result = String.valueOf(progression[missingElement]);
-            isWin = Engine.start(RULE, question, result, i);
+    public static void start(String userName) {
+        int[][] progression = new int[Utils.AMOUNT_GAMES][];
+        int[] missingElement = new int[Utils.AMOUNT_GAMES];
+        String[] question = new String[Utils.AMOUNT_GAMES];
+        String[] result = new String[Utils.AMOUNT_GAMES];
+        for (int numGame = 0; numGame < Utils.AMOUNT_GAMES; numGame++) {
+            progression[numGame] = generateProgression(SIZE);
+            missingElement[numGame] = RandomUtils.nextInt(0, progression.length);
+            question[numGame] = generateQuestion(progression[numGame], missingElement[numGame]);
+            result[numGame] = String.valueOf(progression[numGame][missingElement[numGame]]);
         }
+        Engine.start(RULE, question, result, userName);
     }
 
-    public static int[] generateExpression(int size) {
+    public static int[] generateProgression(int size) {
         int[] progression = new int[size];
         int stepInProgressions = Utils.generateRandomNumber();
         for (int i = 0; i < progression.length; i++) {
