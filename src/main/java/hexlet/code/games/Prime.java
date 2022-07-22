@@ -9,27 +9,25 @@ public class Prime {
     public static final int NUMBER_ITEM = 6;
     public static final String RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-    public static void start(String userName) {
-        int[] operand = new int[Utils.AMOUNT_GAMES];
-        String[] question = new String[Utils.AMOUNT_GAMES];
-        String[] result = new String[Utils.AMOUNT_GAMES];
+    public static void start() {
+        String[][] questionsAndResults = new String[2][Utils.AMOUNT_GAMES];
         for (int numGame = 0; numGame < Utils.AMOUNT_GAMES; numGame++) {
-            operand[numGame] = Utils.generateRandomNumber();
-            question[numGame] = String.valueOf(operand[numGame]);
-            result[numGame] = isPrime(operand[numGame]);
+            int operand = Utils.generateRandomNumber();
+            questionsAndResults[Utils.QUESTION][numGame] = String.valueOf(operand);
+            questionsAndResults[Utils.RESULT][numGame] = isPrime(operand) ? "yes" : "no";
         }
-        Engine.start(RULE, question, result, userName);
+        Engine.start(RULE, questionsAndResults);
     }
 
-    public static String isPrime(int operand) {
+    public static boolean isPrime(int operand) {
         if (operand == 1) {
-            return "no";
+            return false;
         }
         for (int i = 2; i <= operand / 2; i++) {
             if (operand % i == 0) {
-                return "no";
+                return false;
             }
         }
-        return "yes";
+        return true;
     }
 }

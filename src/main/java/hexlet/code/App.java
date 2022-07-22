@@ -33,11 +33,11 @@ public class App {
     public static void openGame(int userChoice) {
         switch (userChoice) {
             case 1 -> Cli.makeWelcome();
-            case Even.NUMBER_ITEM -> Even.start(Cli.makeWelcome());
-            case Calc.NUMBER_ITEM -> Calc.start(Cli.makeWelcome());
-            case GCD.NUMBER_ITEM -> GCD.start(Cli.makeWelcome());
-            case Progression.NUMBER_ITEM -> Progression.start(Cli.makeWelcome());
-            case Prime.NUMBER_ITEM -> Prime.start(Cli.makeWelcome());
+            case Even.NUMBER_ITEM -> Even.start();
+            case Calc.NUMBER_ITEM -> Calc.start();
+            case GCD.NUMBER_ITEM -> GCD.start();
+            case Progression.NUMBER_ITEM -> Progression.start();
+            case Prime.NUMBER_ITEM -> Prime.start();
             default -> { }
         }
     }

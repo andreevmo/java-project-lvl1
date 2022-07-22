@@ -9,19 +9,17 @@ public class GCD {
     public static final int NUMBER_ITEM = 4;
     public static final String RULE = "Find the greatest common divisor of given numbers.";
 
-    public static void start(String userName) {
-        String[] question = new String[Utils.AMOUNT_GAMES];
-        String[] result = new String[Utils.AMOUNT_GAMES];
-        int[][] operands = new int[Utils.AMOUNT_GAMES][];
+    public static void start() {
+        String[][] questionsAndResults = new String[2][Utils.AMOUNT_GAMES];
         for (int numGame = 0; numGame < Utils.AMOUNT_GAMES; numGame++) {
-            operands[numGame] = Utils.generateOperands(2);
-            question[numGame] = operands[numGame][0] + " " + operands[numGame][1];
-            result[numGame] = getGCD(operands[numGame]);
+            int[] operands = Utils.generateOperands(2);
+            questionsAndResults[Utils.QUESTION][numGame] = operands[0] + " " + operands[1];
+            questionsAndResults[Utils.RESULT][numGame] = String.valueOf(getGCD(operands));
         }
-        Engine.start(RULE, question, result, userName);
+        Engine.start(RULE, questionsAndResults);
     }
 
-    public static String getGCD(int[] operands) {
+    public static int getGCD(int[] operands) {
         int max = Math.max(operands[0], operands[1]);
         int min = Math.min(operands[0], operands[1]);
         int divider = 1;
@@ -31,6 +29,6 @@ public class GCD {
             min = max % min;
             max = temp;
         }
-        return String.valueOf(max);
+        return max;
     }
 }

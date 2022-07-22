@@ -11,18 +11,15 @@ public class Progression {
     public static final String RULE = "What number is missing in the progression?";
     public static final int SIZE = 10;
 
-    public static void start(String userName) {
-        int[][] progression = new int[Utils.AMOUNT_GAMES][];
-        int[] missingElement = new int[Utils.AMOUNT_GAMES];
-        String[] question = new String[Utils.AMOUNT_GAMES];
-        String[] result = new String[Utils.AMOUNT_GAMES];
+    public static void start() {
+        String[][] questionsAndResults = new String[2][Utils.AMOUNT_GAMES];
         for (int numGame = 0; numGame < Utils.AMOUNT_GAMES; numGame++) {
-            progression[numGame] = generateProgression(SIZE);
-            missingElement[numGame] = RandomUtils.nextInt(0, progression.length);
-            question[numGame] = generateQuestion(progression[numGame], missingElement[numGame]);
-            result[numGame] = String.valueOf(progression[numGame][missingElement[numGame]]);
+            int[] progression = generateProgression(SIZE);
+            int missingElement = RandomUtils.nextInt(0, progression.length);
+            questionsAndResults[Utils.QUESTION][numGame] = generateQuestion(progression, missingElement);
+            questionsAndResults[Utils.RESULT][numGame] = String.valueOf(progression[missingElement]);
         }
-        Engine.start(RULE, question, result, userName);
+        Engine.start(RULE, questionsAndResults);
     }
 
     public static int[] generateProgression(int size) {

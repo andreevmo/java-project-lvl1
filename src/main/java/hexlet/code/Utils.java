@@ -7,6 +7,8 @@ public class Utils {
 
     public static final int RANGE_FOR_GENERATE = 50;
     public static final int AMOUNT_GAMES = 3;
+    public static final int RESULT = 1;
+    public static final int QUESTION = 0;
 
     public static int generateRandomNumber() {
         return RandomUtils.nextInt(1, RANGE_FOR_GENERATE);
@@ -23,17 +25,5 @@ public class Utils {
     public static String getAnswer() {
         System.out.print("Your answer: ");
         return new Scanner(System.in).nextLine();
-    }
-
-    public static boolean checkAnswer(String userAnswer, String result, String userName) {
-        if (userAnswer.equals(result)) {
-            System.out.println("Correct!");
-            return true;
-        } else {
-            System.out.println("'" + userAnswer + "' is wrong answer ;(. "
-                    + "Correct answer was '" + result + "'.\n"
-                    + "Let's try again, " + userName + "!");
-        }
-        return false;
     }
 }

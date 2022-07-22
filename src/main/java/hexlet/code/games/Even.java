@@ -9,16 +9,14 @@ public class Even {
     public static final int NUMBER_ITEM = 2;
     public static final String RULE = "Answer 'yes' if number even otherwise answer 'no'.";
 
-    public static void start(String userName) {
-        int[] operand = new int[Utils.AMOUNT_GAMES];
-        String[] question = new String[Utils.AMOUNT_GAMES];
-        String[] result = new String[Utils.AMOUNT_GAMES];
+    public static void start() {
+        String[][] questionsAndResults = new String[2][Utils.AMOUNT_GAMES];
         for (int numGame = 0; numGame < Utils.AMOUNT_GAMES; numGame++) {
-            operand[numGame] = Utils.generateRandomNumber();
-            question[numGame] = String.valueOf(operand[numGame]);
-            result[numGame] = operand[numGame] % 2 == 0 ? "yes" : "no";
+            int operand = Utils.generateRandomNumber();
+            questionsAndResults[Utils.QUESTION][numGame] = String.valueOf(operand);
+            questionsAndResults[Utils.RESULT][numGame] = operand % 2 == 0 ? "yes" : "no";
         }
-        Engine.start(RULE, question, result, userName);
+        Engine.start(RULE, questionsAndResults);
     }
 }
 
